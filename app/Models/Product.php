@@ -9,6 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    public function pharmacies()
+    {
+        return $this->belongsToMany(Pharmacy::class);
+    }
+
     protected $fillable = [
         'image_id',
         'title',
