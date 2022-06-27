@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('product_pharmacy', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('pharmacy_id');
+            $table->decimal('price');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
