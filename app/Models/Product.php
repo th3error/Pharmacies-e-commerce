@@ -14,6 +14,11 @@ class Product extends Model
         return $this->belongsToMany(Pharmacy::class);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
     protected $fillable = [
         'image_id',
         'title',
