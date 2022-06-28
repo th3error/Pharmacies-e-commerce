@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        Product::all();
     }
 
     /**
@@ -36,18 +37,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
+        //TODO: Complet the store logic
+        return Product::create($request->validated());
     }
 
     /**
@@ -70,7 +61,9 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $productId = $request->id;
+        $product->where('id', $productId)->update($request->validated());
+        //TODO: Complet the update logic
     }
 
     /**
@@ -79,8 +72,31 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Product $product, Request $request)
     {
-        //
+        //TODO: refactor this, add validation, handle response
+        return $product::destroy($request->id);
+    }
+
+    /**
+     * Search for a specific Station by name
+     *
+     * @param  \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        //TODO: add validation, handle response
+        $productName = $request->name;
+        return Product::where('title', 'ilike', '%' . $productName . '%')->get();
+    }
+
+    public function productPharmacyDetails()
+    {
+        //TODO: Add validation
+        $products = Product::select('id', 'title', 'description')
+            ->with('pharmacies:name,address')
+            ->get();
+        return $products;
     }
 }
