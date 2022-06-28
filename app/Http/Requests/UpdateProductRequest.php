@@ -24,7 +24,14 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
+            'title'         => 'string|alpha_num',
+            'description'   => 'string|alpha_num',
+            'image_path'    => 'url',
+            'price'         => 'integer|numeric',
+            'pharmacy_id'   => 'required|integer|numeric',
+            'product_id'    => 'required|integer|numeric'
+
         ];
     }
 }
