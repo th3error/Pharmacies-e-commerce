@@ -17,7 +17,8 @@ class PharmacyFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->company(),
+            'address' => fake()->address()
         ];
     }
 }
