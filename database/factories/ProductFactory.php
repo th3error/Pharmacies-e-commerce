@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => fake()->unique()->text(15),
+            'description' => fake()->sentence()
         ];
     }
 }
