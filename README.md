@@ -24,7 +24,7 @@ POST - returns matching products based on entered name
 GET - returns all products associated with the available pharmacies and price for each pharmacy
 
 
-#### CRUD APIs available for Products
+#### CRUD APIs(without Interfaces) available for Products
 /api/update-product -- /api/create-product -- /api/delete-product
 
 #### Postman Collection available for testing: postman_collection.json
@@ -38,7 +38,7 @@ php artisan search:cheapest {product_id}
 - adjust your .env file and add database connection details
 - run `composer install` (I'm using v2.3.7) to download all dependencies
 - run `php artisan migrate` to create the tables and foreign keys
-- run `php artisan php artisan db:seed` This should run all seeders in order (can take a while)
+- run `php artisan db:seed` This should run all seeders in order (can take a while)
 - run `php artisan serve` to start testing the APIs
 
 
