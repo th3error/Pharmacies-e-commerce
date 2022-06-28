@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Pharmacy;
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 
-
-class PharmacySeeder extends Seeder
+class ImageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +14,8 @@ class PharmacySeeder extends Seeder
      */
     public function run()
     {
-        Pharmacy::factory()->count(20000)->create();
+        Image::factory()
+            ->count(50000)
+            ->create();
     }
 }
