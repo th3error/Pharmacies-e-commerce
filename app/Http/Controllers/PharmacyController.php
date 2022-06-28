@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pharmacy;
 use App\Http\Requests\StorePharmacyRequest;
 use App\Http\Requests\UpdatePharmacyRequest;
-use App\Models\Pharmacy;
 
 class PharmacyController extends Controller
 {
@@ -15,7 +15,7 @@ class PharmacyController extends Controller
      */
     public function index()
     {
-        //
+        Pharmacy::all();
     }
 
     /**
