@@ -11,16 +11,15 @@ class Product extends Model
 
     public function pharmacies()
     {
-        return $this->belongsToMany(Pharmacy::class);
+        return $this->belongsToMany(Pharmacy::class)->withPivot('price')->as('extra_info');
     }
 
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasOne(Image::class);
     }
 
     protected $fillable = [
-        'image_id',
         'title',
         'description'
     ];
