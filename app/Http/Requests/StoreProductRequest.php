@@ -24,7 +24,11 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title'         => 'required',
+            'description'   => 'required',
+            'image_path'         => 'required',
+            'price'         => 'required',
+            'pharmacy_id'   => 'required'
         ];
     }
 }
